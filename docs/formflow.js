@@ -75,6 +75,11 @@ function nextQuestion(currentQuestion) {
     var muteProgram = false,
       program = requirements[pcode];
 
+    if (!(program.rules || []).every(cond => cond(answers))) {
+      console.log(pcode + " failed some checks");
+      muteProgram = true;
+    }
+
     (program.required_yes || []).forEach(function (answerToCheck) {
       if (answers[answerToCheck] === false) {
         console.log(pcode + " checks " + answerToCheck + " and sees false instead of true");
