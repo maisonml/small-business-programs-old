@@ -19,7 +19,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build && mkdir build_tmp && mv build/* build_tmp && cp -r docs/* build && mkdir build/questions && mv build_tmp/* build/questions && cp build/questions/index.html build/questions.html && rm -rf build_tmp",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "amplify:transformer": "FUNCTION_NAME=transformer scripts/compile-function.sh",
