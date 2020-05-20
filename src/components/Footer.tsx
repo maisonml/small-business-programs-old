@@ -3,11 +3,11 @@ import React from "react";
 import "./footer.scss";
 
 const Footer: React.FC = () => (
-  <footer className="no-print bg-primary-vivid">
+  <footer className="no-print">
     <div className="container">
       <div className="row">
         <div className="col">
-          <img src="/usdr_logo_white.png" alt="USDR Logo" />
+          <img src="/usdr_logo_dark.png" alt="USDR Logo" />
           Built by&nbsp;
           <a href="https://www.usdigitalresponse.org/" target="_blank">
             United States Digital Response
@@ -25,7 +25,7 @@ const Footer: React.FC = () => (
           </p>
           <p className="d-inline">
             <a href="mailto:info@usdigitalresponse.org">
-              info@usdigitalresponse.com
+              info@usdigitalresponse.org
             </a>
           </p>
         </div>
