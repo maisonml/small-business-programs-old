@@ -140,6 +140,14 @@ Add to questions and headers:
   },
 }
 ```
+
+## Other technologies used
+### React Snapshot
+We use [React Snapshot](https://github.com/geelen/react-snapshot) for generating static versions of each page when deploying to production so search engines can crawl them properly
+
+### React helmet
+We use [React Helmet](https://github.com/nfl/react-helmet) to change the meta tags on each page for SEO.
+
 # Future Expansions
 
 ## Lite backend
