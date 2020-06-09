@@ -6,15 +6,16 @@ Survey to recommend programs for small businesses
 
 This describes the new React-based form interface.
 
-## Build
-
-To test a "production" build:
-
- $ yarn build
- $ cp -r build docs/questions
- $ cd docs && python -m SimpleHTTPServer
-
 ## Development
+
+# Getting started
+Make sure you have been added to the USDR accounts for the following services:
+- Render
+- Github
+- Google Analytics
+- Namecheap (optional, DNS provider for our old domains, covidloans.us and covidloaninfo.org)
+
+# Run locally
 
 On the first run:
 
@@ -24,9 +25,25 @@ And then to test the form interface:
 
   $ yarn start
 
-This will open a browser window with just the form.
+This will open a browser window running at localhost:3000
 
-The contents of the form itself are defined in src/form.json
+# Deployment
+We use Render for hosting/deployment.  The steps to deploy to production are as follows:
+1. Create a PR against the `latest` branch
+1. Render will generate a staging link to test changes/demo
+1. When ready to deploy, merge to `latest` and Render will deploy automatically (takes ~5mins at the time of writing).
+
+
+# Other helpful guides
+
+## Making copy changes
+  1. For the form, go to [form.json](/small-business-programs/blob/latest/src/form.json)
+  1. Click the edit button, and use cmd+F to find the text you want to change
+  1. Make the changes, being careful not to delete the surrounding `""` on each value
+  1. Scroll to the bottom of the page, and select the option to "Create a **new branch** for this commit and start a pull request."
+  1. Follow the deployment steps above to ship it
+  
+  The same will work for copy anywhere on the site but it will not be concentrated in a single file so you'll need to search the whole codebase for the text you want to change instead.
 
 # Documentation
 
@@ -123,19 +140,13 @@ Add to questions and headers:
   },
 }
 ```
+# Future Expansions
 
+## Lite backend
+We have a few lower priority feature that would require some sort of persistent datastore (most prominently the ability to store survey responses).  Based on the current requirements Firebase seems like a promising candidate, and Rene is a great person to talk to for greater detail on those discussions
 
-# Running locally
-Currently a static site. If you are a Node dev:
-
-```bash
-npm install http-server -g
-cd docs
-http-server
-```
-
-We included Bootstrap, jQuery, and Popper as local files to avoid
-third-party CDNs and dependencies.
+## Broader CMS
+Ideally we could create a workflow for making copy changes such that there is no technical experience required to make or ship changes.  This would unblock content/marketing/product from making those kinds of changes as the need arises rather than waiting for bandwidth from engineering.  We already have a very basic version of this for the form, where all copy and translations are in a single json file.  We could extend that same structure to be used for content pages as well so we would retain the ability to support multiple languages but completely separate (or as much as possible) content from page structure.
 
 # Contributing
 We welcome contributions to open source code and documentation
