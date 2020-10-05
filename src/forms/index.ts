@@ -9,9 +9,18 @@ import Boolean from '../components/form-components/Boolean'
 import Multiselect from '../components/form-components/Multiselect'
 import PhoneNumber from '../components/form-components/PhoneNumber'
 import TextArea from '../components/form-components/TextArea'
+// import { db } from '../services/firebase';
 
 export function initializeForm(): RawForm {
-  const rawForm = form
+
+  let rawForm = form || null;
+
+  console.log('INIT Form', rawForm)
+
+  // db.ref('/').on('value', (snapshot) => {
+  //   console.log('formmmm', snapshot.val())
+  //   rawForm = snapshot.val()
+  // })
 
   // Validate the schema against our Joi schema
   // which makes it easier to identify issues in the form

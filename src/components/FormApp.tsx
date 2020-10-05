@@ -46,24 +46,27 @@ const FormApp: React.FC<Props> = (props) => {
     form: { questions },
   } = useForm();
   
-  let filteredQuestions = questions;
+  let filteredQuestions = questions || [];
   
-  if (!ca && !pitt && !hawaii) {
-    // This is a temporary fix until we flush out branching better
-    filteredQuestions = filteredQuestions.filter((q) => !q.ca_only && !q.pitt_only && !q.hawaii_only);
-  }
-  if (ca) {
-        // This is a temporary fix until we flush out branching better
-        filteredQuestions = filteredQuestions.filter((q) => !q.pitt_only && !q.hawaii_only);
-  }
-  if (pitt) {
-        // This is a temporary fix until we flush out branching better
-        filteredQuestions = filteredQuestions.filter((q) => !q.ca_only && !q.hawaii_only);
-  }
-  if (hawaii) {
+  if (filteredQuestions) {
+    if (!ca && !pitt && !hawaii) {
       // This is a temporary fix until we flush out branching better
-      filteredQuestions = filteredQuestions.filter((q) => !q.ca_only && !q.pitt_only);
+      filteredQuestions = filteredQuestions.filter((q) => !q.ca_only && !q.pitt_only && !q.hawaii_only);
+    }
+    if (ca) {
+          // This is a temporary fix until we flush out branching better
+          filteredQuestions = filteredQuestions.filter((q) => !q.pitt_only && !q.hawaii_only);
+    }
+    if (pitt) {
+          // This is a temporary fix until we flush out branching better
+          filteredQuestions = filteredQuestions.filter((q) => !q.ca_only && !q.hawaii_only);
+    }
+    if (hawaii) {
+        // This is a temporary fix until we flush out branching better
+        filteredQuestions = filteredQuestions.filter((q) => !q.ca_only && !q.pitt_only);
+    }
   }
+  
 
   const percent = Math.floor((currentIndex / filteredQuestions.length) * 100);
   const setNextPage = (index: number) => {
@@ -127,14 +130,21 @@ const FormApp: React.FC<Props> = (props) => {
                     </Text>
                   </Box>
                 </Box> */}
-                <Form question={filteredQuestions[currentIndex]} />
-                {currentIndex + 1 < filteredQuestions.length ? (
-                  <Button onClick={onClickNext} size="large">
-                    {next}
-                  </Button>
-                ) : (
-                  <ResultsButton />
-                )}
+                {filteredQuestions.length > 0 ? 
+                  <>
+                    <Form question={filteredQuestions[currentIndex]} />
+                    {currentIndex + 1 < filteredQuestions.length ? (
+                      <Button onClick={onClickNext} size="large">
+                        {next}
+                      </Button>
+                    ) : (
+                      <ResultsButton />
+                    )}
+                  </> 
+                  :
+                  <h1>LOADING...</h1>
+                }
+                
               </Box>
             </div>
           </div>

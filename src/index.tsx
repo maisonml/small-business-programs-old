@@ -3,19 +3,24 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
+import FirebaseProvider from "./services/firebase";
 
 const rootElement = document.getElementById("root") as HTMLFormElement;
 if (rootElement.hasChildNodes()) {
   ReactDOM.hydrate(
     <React.StrictMode>
-      <App />
+      <FirebaseProvider>
+        <App />
+      </FirebaseProvider>
     </React.StrictMode>,
     rootElement
   );
 } else {
   ReactDOM.render(
     <React.StrictMode>
-      <App />
+      <FirebaseProvider>
+        <App />
+      </FirebaseProvider>
     </React.StrictMode>,
     rootElement
   );

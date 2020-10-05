@@ -1,7 +1,10 @@
-import React from "react";
+// @ts-nocheck
+
+import React, {useContext, useEffect, useState} from "react";
 import { Grommet } from "grommet";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Helmet } from "react-helmet";
+import { FirebaseContext } from "./services/firebase";
 
 import FormApp from "./components/FormApp";
 import { LanguageProvider } from "./contexts/language";
@@ -14,9 +17,7 @@ import Results from "./components/Results";
 import "./App.scss";
 
 declare function gtag(eventName: String, id: String): any;
-
 const uswdsPrimary = "#005ea2";
-
 const theme = {
   global: {
     text: {
@@ -69,14 +70,23 @@ const theme = {
     },
   },
 };
-
+  
 function App() {
+  const firebase = useContext(FirebaseContext)
+
   // `theme as any` because grommet has incomplete TS definitions
   return (
     <Grommet className="App" theme={theme as any}>
       <LanguageProvider>
         <Router>
           <Switch>
+
+            <Route exact path="/admin">
+              <div>
+                hi
+              </div>
+            </Route>
+
             <Route exact path="/california">
               <Helmet>
                 <link
@@ -130,20 +140,25 @@ function App() {
                 <FormApp />
               </FormProvider>
             </Route>
+
             <Route exact path="/questionnaire">
               <OldQuestionnaire />
             </Route>
+
             <Route exact path="/ppp-loans">
               <PPPLoanInfo />
             </Route>
+
             <Route exact path="/results">
               <FormProvider>
                 <Results />
               </FormProvider>
             </Route>
+
             <Route exact path="/">
-              <Landing></Landing>
+              <Landing/>
             </Route>
+
           </Switch>
           <Route
             path="/"
