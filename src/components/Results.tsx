@@ -32,7 +32,8 @@ const allStatePrograms = [
   'hawaii_small_business',
   'hawaii_manufacturing',
   'hawaii_malama',
-  'hawaii_hua'
+  'hawaii_hua',
+  'ca_services_la_verne'
 ]
 
 const Results: React.FC = () => {

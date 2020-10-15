@@ -17,12 +17,13 @@ interface FormValues {
 
 interface Props {
   ca?: boolean;
+  ca_services?:boolean
   pitt?:boolean;
   hawaii?:boolean;
 }
 
 const FormApp: React.FC<Props> = (props) => {
-  const { ca, pitt, hawaii } = props;
+  const { ca, ca_services, pitt, hawaii } = props;
   const [back, next, complete] = useFormDictionary("back", "next", "complete");
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const [windowWidth, setWindowWidth] = useState(0);
@@ -63,6 +64,10 @@ const FormApp: React.FC<Props> = (props) => {
   if (hawaii) {
       // This is a temporary fix until we flush out branching better
       filteredQuestions = filteredQuestions.filter((q) => !q.ca_only && !q.pitt_only);
+  }
+  if (ca_services) {
+    // This is a temporary fix until we flush out branching better
+    filteredQuestions = filteredQuestions.filter((q) => q.ca_services_only);
   }
 
   const percent = Math.floor((currentIndex / filteredQuestions.length) * 100);

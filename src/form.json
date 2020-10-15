@@ -210,6 +210,76 @@
       "required": true,
       "ca_only": true
     },
+
+
+
+
+    {
+      "id": "ca_services_languages",
+      "name": {
+        "en": "What languages do you prefer?"
+
+      },
+      "type": "singleselect",
+      "options": [
+        {
+          "id": "language_english",
+          "name": {
+            "en": "English"
+          }
+        },
+        {
+          "id": "language_spanish",
+          "name": {
+            "en": "Spanish"
+          }
+        },
+        {
+          "id": "language_Mandarin",
+          "name": {
+            "en": "Mandarin"
+          }
+        }
+      ],
+      "required": true,
+      "ca_services_only": true
+    },
+
+
+    {
+      "id": "ca_services_needs",
+      "name": {
+        "en": "What services are you interested in?"
+
+      },
+      "type": "singleselect",
+      "options": [
+        {
+          "id": "needs_consulting",
+          "name": {
+            "en": "1-1 Consulting / Training Offerings"
+          }
+        },
+        {
+          "id": "needs_training",
+          "name": {
+            "en": "Trainings or Webinars"
+          }
+        },
+        {
+          "id": "needs_marketing",
+          "name": {
+            "en": "Marketing;Operations;"
+          }
+        }
+      ],
+      "required": true,
+      "ca_services_only": true
+    },
+
+
+
+
     {
       "id": "pa_state",
       "name": {
@@ -431,6 +501,29 @@
         "url":"https://ibank.ca.gov/small-business-finance-center/",
         "status":"Available Now"
     },
+
+    {
+      "id":"ca_services_la_verne",
+      "name":{
+        "en":"University of La Verne SBDC"
+
+      },
+      "what":{
+        "en":"1-1 Consulting / Training Offerings;Trainings or Webinars;Fundraising (i.e. loans, investments, or grants);Disaster Assistance;E-Commerce / Digital Strategies;Financial Management;Government Procurement / Contracting;Innovative Startups / Science & Tech Based Startups;Marketing;Operations;Employer / Workforce Issues;"
+
+      },
+      "who":{
+        "en":"For everyone"
+      },
+
+      "url":"https://www.lavernesbdc.org",
+      "status":"Available Now"
+    },
+
+
+
+
+
     {
         "id":"pitt_elf",
         "name":{

@@ -10,12 +10,13 @@ import "./index.scss";
 
 interface Props {
   ca?: boolean
+  ca_services?: boolean
   pitt?: boolean
   hawaii?:boolean;
 }
 
 const Landing: React.FC<Props> = (props) => {
-  const { ca, pitt, hawaii } = props;
+  const { ca, ca_services, pitt, hawaii } = props;
 
   const [windowWidth, setWindowWidth] = useState(1000);
 
@@ -70,7 +71,7 @@ const Landing: React.FC<Props> = (props) => {
                 </p> */}
           
                   <Link 
-                    to={ca ? "/california/questions" : pitt ? "/pittsburgh/questions" : hawaii ? "/hawaii/questions" : "/questions"}
+                    to={ca ? "/california/questions" : ca_services ? "/ca_services/questions" : pitt ? "/pittsburgh/questions" : hawaii ? "/hawaii/questions" : "/questions"}
                     role="button"
                     className="usa-button usa-button--big"
                     >

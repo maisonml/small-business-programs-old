@@ -76,6 +76,19 @@
   },
 
   {
+    "program": "ca_services_la_verne",
+    "rules": [
+      {
+        "op": "eq",
+        "qid": "ca_services_languages",
+        "value": "language_english"
+      }
+
+    ]
+  },
+
+
+  {
     "program": "pitt_elf",
     "rules": [
       {

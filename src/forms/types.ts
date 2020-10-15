@@ -30,6 +30,7 @@ QuestionSchema = Joi.object({
     .pattern(Joi.string(), [null, Joi.array().items(QuestionSchema)])
     .optional(),
   ca_only: Joi.boolean().optional(),
+  ca_services_only: Joi.boolean().optional(),
   pitt_only: Joi.boolean().optional(),
   hawaii_only: Joi.boolean().optional()
 });
@@ -68,6 +69,7 @@ interface Question {
   options?: Option[];
   switch?: Switch;
   ca_only?: Boolean;
+  ca_services_only?: Boolean;
   pitt_only?: Boolean;
   hawaii_only?: Boolean;
 
