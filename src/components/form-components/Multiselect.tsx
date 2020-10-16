@@ -38,8 +38,20 @@ const Multiselect: React.FC<Props> = (props) => {
       {question.options.map(o => {
         const isSelected = value && value.includes(o.id)
         return (
-          <Box onClick={() => onSelectValue(o.id)} style={{ background: isSelected ? "#EBFFFA" : "white" }} align="start" key={o.id} margin={{ bottom: 'xsmall' }} pad='small' className="single-select-border single-select" direction="row">
-            <Box style={{ background: isSelected ? "#008060" : "white", height: 20, width: 20, borderRadius: '50%', flexShrink: 0 }} margin={{ right: 'small' }} className="single-select-border" />
+          <Box onClick={() => onSelectValue(o.id)} style={{ background: isSelected ? "#EBFFFA" : "white" }} align="start" key={o.id} margin={{ bottom: 'xsmall' }} pad='small' className="single-select" direction="row">
+            <Box 
+              style={{ 
+                background: isSelected ? "#008060" : "white", 
+                height: 44, 
+                width: 44, 
+                borderRadius: '50%', 
+                flexShrink: 0,
+                border: 'solid 2px rgba(0,0,0,0.15)',
+                // margin-left: 0
+              }} 
+              margin={{ right: 'small' }} 
+              className="single-select-border" 
+            />
             <Text>{o.name}</Text>
           </Box>
         )

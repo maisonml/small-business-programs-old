@@ -90,6 +90,5 @@ const typeComponentMappings: { [type: string]: React.FC } = {
 //   'address_picker' | 'phone' | 'ssn' | 'address' | 'integer' | 'dollar-amount'
 
 export function getComponent(type: QuestionType): React.FC {
-  console.log('type', type)
   return typeComponentMappings[type] || TextInput
 }

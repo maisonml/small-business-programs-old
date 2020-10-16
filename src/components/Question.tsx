@@ -21,7 +21,6 @@ const Question: React.FC<Props> = (props) => {
   const text = question.name.replace(/\n/g, "\n<br/>")
   const text2 = question.name2?.replace(/\n/g, "\n<br/>")
 
-  console.log('question text2', text2)
   return (
     <Box direction="column" margin={{ bottom: 'small' }}>
       <Box 

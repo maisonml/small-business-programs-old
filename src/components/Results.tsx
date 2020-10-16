@@ -33,7 +33,10 @@ const allStatePrograms = [
   'hawaii_manufacturing',
   'hawaii_malama',
   'hawaii_hua',
-  'ca_services_la_verne'
+  'ca_services_la_verne',
+  'ca_services_el_camino_college',
+  'ca_services_san_diego_orange_and_imperial',
+  'ca_services_la_regional_small_biz_development_center'
 ]
 
 const Results: React.FC = () => {
