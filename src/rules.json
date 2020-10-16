@@ -92,6 +92,11 @@
         "op": "eq",
         "qid": "ca_services_languages",
         "value": "language_english"
+      },
+      {
+        "op": "eq",
+        "qid": "ca_services_languages",
+        "value": "language_spanish"
       }
     ]
   },

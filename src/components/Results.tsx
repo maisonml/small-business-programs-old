@@ -94,9 +94,9 @@ const Results: React.FC = () => {
               <h1 className="title-top">
                 {results.find(result => result.id === "page-title").recommendations}
               </h1>
-              <p>
+              {/* <p>
                 {results.find(result => result.id === "instructions").relationship}
-              </p>
+              </p> */}
               <a name="ppp"></a>
               {filteredNationalPrograms.some(program => program.id === "ppp") && 
                 <PPPSection
@@ -124,9 +124,9 @@ const Results: React.FC = () => {
             <h1 className="title-top">
               Your Recommendations
             </h1>
-            <p>
+            {/* <p>
               If you and your business have an existing relationship with a bank, contact your banker for more information about available relief programs. 
-            </p>
+            </p> */}
             <Tabsbar
               eligiblePrograms={filteredNationalPrograms.concat(filteredStatePrograms)}
             />
