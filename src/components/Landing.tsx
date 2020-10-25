@@ -62,16 +62,12 @@ const Landing: React.FC<Props> = (props) => {
           <div className="row">
             <div className="col-md-6">
               <div>
-                <h1>Find COVID-19 financial assistance for your business</h1>
+                <h1>[CA-SERVICES] Find COVID-19 financial assistance for your business</h1>
                 <p>
                   Answer a few questions to find loans, funding alternatives, and support.
                 </p>
-                {/* <p>
-                  UPDATE: The federal Payroll Protection Program has been extended to August 8, 2020. Find a lender and complete your application before the deadline.
-                </p> */}
-          
                   <Link 
-                    to={ca ? "/california/questions" : ca_services ? "/ca_services/questions" : pitt ? "/pittsburgh/questions" : hawaii ? "/hawaii/questions" : "/questions"}
+                    to="/questions"
                     role="button"
                     className="usa-button usa-button--big"
                     >

@@ -77,16 +77,7 @@ function App() {
       <LanguageProvider>
         <Router>
           <Switch>
-            <Route exact path="/california">
-              <Helmet>
-                <link
-                  rel="canonical"
-                  href="https://businessrelief.usdigitalresponse.org"
-                />
-              </Helmet>
-              <Landing ca={true} />
-            </Route>
-
+            
             <Route exact path="/california/questions">
               <FormProvider>
                 <FormApp ca={true} />
@@ -135,24 +126,10 @@ function App() {
               <Landing ca_services={true} />
             </Route>
 
-            <Route exact path="/ca_services/questions">
-              <FormProvider>
-                <FormApp ca_services={true} />
-              </FormProvider>
-            </Route>
-
-
-
             <Route exact path="/questions">
               <FormProvider>
-                <FormApp />
+                <FormApp ca_services={true}/>
               </FormProvider>
-            </Route>
-            <Route exact path="/questionnaire">
-              <OldQuestionnaire />
-            </Route>
-            <Route exact path="/ppp-loans">
-              <PPPLoanInfo />
             </Route>
             <Route exact path="/results">
               <FormProvider>
@@ -160,7 +137,9 @@ function App() {
               </FormProvider>
             </Route>
             <Route exact path="/">
-              <Landing></Landing>
+              <Landing
+                ca_services={true}
+              />
             </Route>
           </Switch>
           <Route
