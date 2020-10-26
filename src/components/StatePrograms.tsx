@@ -25,19 +25,6 @@ const StatePrograms: React.FC = (props) => {
         <p className="loan-description">
           <strong>Who is it for?</strong>
         </p>
-        {
-          program.id === 'hawaii_community' ?
-            (<p>Small businesses located in Hawaii that have been turned down by at least one financial institution. The loan must result in a community-based economic development outcome such as: 
-              <ul>
-                <li>Increase in jobs in an economically challenged community </li>
-                <li>Increase in local sourcing of inputs to a manufactured product </li>
-                <li>Addition of needed service or business to an economically challenged community and </li>
-                <li>Other community economic benefits of business growth.</li>
-              </ul>
-            </p>)
-            :
-            <p>{program.who}</p>
-        }
         <a
           className="usa-button"
           data-ga-label={program.id}
