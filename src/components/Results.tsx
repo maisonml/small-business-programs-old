@@ -88,59 +88,41 @@ const Results: React.FC = () => {
     <Header showLanguageSelect/>
     <main>
       <div className="container">
-      {styles.showSidebar ? 
-          <div className="row">
-            <div className="col-md-8 left">
-              <h1 className="title-top">
-                {results.find(result => result.id === "page-title").recommendations}
-              </h1>
-              {/* <p>
-                {results.find(result => result.id === "instructions").relationship}
-              </p> */}
-              <a name="ppp"></a>
-              {filteredNationalPrograms.some(program => program.id === "ppp") && 
-                <PPPSection
-                  program={filteredNationalPrograms.filter(program => program.id === "ppp")}
-                />
-              } 
-              <a name="eidl"></a>
-              {eligibleProgramIds.some(program => program.id === "eidl") && 
-                <EIDLProgramSection
-                  program={filteredNationalPrograms.filter(program => program.id === "eidl")}
-                />
-              }
-              <StatePrograms
-                eligibleStatePrograms={filteredStatePrograms}
-              />
-            </div>
-            <div className="col-md-4">
-              <Sidebar
+        <div className="row">
+          <div className="col-md-8 left">
+            <h1 className="title-top">
+              {results.find(result => result.id === "page-title").recommendations}
+            </h1>
+            <p>
+              {results.find(result => result.id === "instructions").relationship}
+            </p>
+            {!styles.showSidebar && 
+              <Tabsbar
                 eligiblePrograms={filteredNationalPrograms.concat(filteredStatePrograms)}
               />
-            </div>
+            }
+            <a name="ppp"></a>
+            {filteredNationalPrograms.some(program => program.id === "ppp") && 
+              <PPPSection
+                program={filteredNationalPrograms.filter(program => program.id === "ppp")}
+              />
+            } 
+            <a name="eidl"></a>
+            {eligibleProgramIds.some(program => program.id === "eidl") && 
+              <EIDLProgramSection
+                program={filteredNationalPrograms.filter(program => program.id === "eidl")}
+              />
+            }
+            <StatePrograms
+              eligibleStatePrograms={filteredStatePrograms}
+            />
           </div>
-          :
-          <div className="row mobile-container">
-            <h1 className="title-top">
-              Your Recommendations
-            </h1>
-            {/* <p>
-              If you and your business have an existing relationship with a bank, contact your banker for more information about available relief programs. 
-            </p> */}
-            <Tabsbar
+          <div className="col-md-4">
+            <Sidebar
               eligiblePrograms={filteredNationalPrograms.concat(filteredStatePrograms)}
             />
-            <div data-spy="scroll" data-target="#mobile-tabsbar-container" data-offset="0">
-              <a name="ppp"></a>
-              {eligibleProgramIds.includes('ppp') && <PPPSection/>} 
-              <a name="eidl"></a>
-              {eligibleProgramIds.includes('eidl') && <EIDLProgramSection/>}
-              <StatePrograms
-                eligibleStatePrograms={filteredStatePrograms}
-              />
-            </div>
           </div>
-        }
+        </div>
       </div>
     </main>
     <Footer />
